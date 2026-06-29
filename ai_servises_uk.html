@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Сучасних Сервісів Штучного Інтелекту</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131a26;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a855f7;
+            --accent-green: #10b981;
+            --accent-orange: #f97316;
+            --border-color: #1e293b;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Стилі Навігаційного Меню / Фільтра */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 50px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 10px 22px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .menu-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-btn.active {
+            background: linear-gradient(to right, #38bdf8, #a855f7);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Сетка карток */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        /* Стиль картки ШІ */
+        .ai-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Анімація появи карток при фільтрації */
+        .ai-card.hidden {
+            display: none;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-5px);
+            border-color: #475569;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .ai-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .ai-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Колірні схеми тегів */
+        .card-blue .ai-badge { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); }
+        .card-purple .ai-badge { background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); }
+        .card-green .ai-badge { background: rgba(16, 185, 129, 0.1); color: var(--accent-green); }
+        .card-orange .ai-badge { background: rgba(249, 115, 22, 0.1); color: var(--accent-orange); }
+
+        .ai-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .ai-wow-factor {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+        
+        .card-purple .ai-wow-factor { border-left-color: var(--accent-purple); }
+        .card-green .ai-wow-factor { border-left-color: var(--accent-green); }
+        .card-orange .ai-wow-factor { border-left-color: var(--accent-orange); }
+
+        .ai-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .ai-link:hover {
+            background: #ffffff;
+            color: var(--bg-color);
+            border-color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 30px 15px; }
+            header h1 { font-size: 2.2rem; }
+            .nav-menu { border-radius: 15px; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+                <div align=right  >
+                      <a href="index_uk.html"          style="font-size:15px;  color:#ffffff;"  target = _top title= "Головна Сторінка  ">Головна Сторінка&nbsp;&nbsp;&nbsp;&nbsp; </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <a href="ai_servises.html"        style="font-size:15px;  color:#ffffff;"  target = _top title= "Перевод на русский язык "> Ru</a>&nbsp;
+                      <a href="ai_servises_uk.html"   style="font-size:15px;  color:#ffffff;"  target = _top title= "Переклад на українську мову "> Uk</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <!-- Текущая дата -->
+                <div align = right style="font-size:15px;  color:#ffffff;"> 
+                        <Script language="JavaScript">
+                                    var now = new Date();
+                                    var days = new Array(' Неділя ',' Понеділок ',' Вівторок ',' Середа ',' Четвер ',' Пятниця ',' Субота ');
+                                    var months = new Array(' Січня ',' Лютого ',' Березня ',' Квітня ',' Травня ',' Червня ',' Липня ',' Серпня ',' Вересня',' Жовтня  ',' Листопада ',' Грудня ');
+                                    var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+                                    function fourdigits(number)	{ return (number < 1000) ? number + 1900 : number; }
+                                    today =  days[now.getDay()]+ " " +date + " " +months[now.getMonth()] + "  " +(fourdigits(now.getYear())) + " року.&nbsp;&nbsp;&nbsp;";
+                                    document.write("<span class=\"style2\">"+"Цей день  "+today+"</span>");
+                        </Script>
+                </div>    
+                <!>    
+
+<div class="container">
+    <header>
+        <h1>Надпотужні Сервіси ШІ Нового Покоління</h1>
+        <p>Технологічні гіганти, які змінюють реальність. Найпрогресивніші, найшвидші та найдивовижніші нейромережі, доступні людству.</p>
+    </header>
+
+    <nav class="nav-menu">
+        <button class="menu-btn active" onclick="filterCategory('all')">Усі сервіси</button>
+        <button class="menu-btn" onclick="filterCategory('text')">Текст та Пошук</button>
+        <button class="menu-btn" onclick="filterCategory('image')">Графіка та Дизайн</button>
+        <button class="menu-btn" onclick="filterCategory('media')">Мультимедіа та Код</button>
+    </nav>
+
+    <main>
+        <div class="ai-grid">
+
+            <div class="ai-card card-blue" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">DeepSeek</span>
+                    <span class="ai-badge">Deep Reasoning</span>
+                </div>
+                <p class="ai-desc">Сенсаційна нейромережа, що сколихнула світову ІТ-індустрію. Має унікальний стиль «глибокого мислення»: перед відповіддю вона вибудовує внутрішній ланцюжок міркувань, перевіряючи саму себе.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Вважається однією з найрозумніших і водночас найдоступніших моделей у світі для складної математики, аналізу та програмування.</div>
+                <a href="https://deepseek.com/" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-purple" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">Grok (xAI)</span>
+                    <span class="ai-badge">Real-Time Дані</span>
+                </div>
+                <p class="ai-desc">Штучний інтелект, створений Ілоном Маском. Його ключова відмінність — прямий і миттєвий доступ до гігантської бази даних соцмережі X (колишній Твіттер), що робить його найпоінформованішим щодо свіжих новин.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Знає про події у світі, які відбулися буквально 5 хвилин тому, і може відповідати з фірмовим гумором та іронією.</div>
+                <a href="https://grok.com/" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-green" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">Qwen (Alibaba)</span>
+                    <span class="ai-badge">Мультимовний</span>
+                </div>
+                <p class="ai-desc">Потужне сімейство моделей від азійського гіганта Alibaba. Демонструє феноменальні результати в кодингу, перекладі мов та вирішенні комплексних логічних задач, на рівних конкуруючи з американськими аналогами.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Неймовірна точність у роботі з європейськими та азійськими мовами, ідеальний для написання та аудиту коду будь-якої складності.</div>
+                <a href="https://chat.qwen.ai/" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-orange" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">ChatGPT (OpenAI)</span>
+                    <span class="ai-badge">Абсолютний Топ</span>
+                </div>
+                <p class="ai-desc">Головний законодавець моди у світі ШІ. Актуальні просунуті версії вміють проводити надскладні дослідження (Deep Research), шукати інформацію годинами, аналізувати сотні сторінок даних і видавати бездоганний результат.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Голосовий режим розмовляє як жива людина (з емоціями та придихом) і здатний здійснювати справжній "глибокий пошук".</div>
+                <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-blue" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">Google Gemini</span>
+                    <span class="ai-badge">Мультимодальний</span>
+                </div>
+                <p class="ai-desc">Просунутий ІІ від Google, глибоко інтегрований у сервіси компанії. Унікальний тим, що з самого початку розроблявся як мультимодальний — він однаково добре розуміє текст, аудіо, кодинг, графіку та відео.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Має величезне контекстне вікно, завдяки чому може за раз аналізувати цілі художні книги або години відеоматеріалів.</div>
+                <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-purple" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">Claude (Anthropic)</span>
+                    <span class="ai-badge">Аналіз / Текст</span>
+                </div>
+                <p class="ai-desc">Нейромережа від колишніх провідних інженерів OpenAI. Відома своїм витонченим, максимально наближеним до людського стилем написання текстів та бездоганною роботою зі складними логічними інструкціями.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Пише найлітературніші та найприродніші тексти серед усіх існуючих ШІ, без "роботизованих" штампів.</div>
+                <a href="https://claude.ai" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-green" data-category="text">
+                <div class="card-header">
+                    <span class="ai-name">Perplexity AI</span>
+                    <span class="ai-badge">Пошук знань</span>
+                </div>
+                <p class="ai-desc">Інтелектуальна пошукова система нового покоління. Замість звичного списку посилань вона одразу аналізує інтернет та видає готову структуровану відповідь із точними посиланнями на першоджерела.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Ідеальний інструмент для швидкого фактчекінгу та збору актуальної інформації без реклами та сміття.</div>
+                <a href="https://www.perplexity.ai" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+
+            <div class="ai-card card-orange" data-category="image">
+                <div class="card-header">
+                    <span class="ai-name">Midjourney</span>
+                    <span class="ai-badge">Фотореалізм 4K</span>
+                </div>
+                <p class="ai-desc">Головний цифровий художник планети. Сучасні версії генерують графіку кінематографічної якості, ідеально розуміють складні ракурси, освітлення та без проблем вбудовують читабельний текст прямо в картинку.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Створює зображення, які з легкістю перемагають на реальних виставках класичної фотографії.</div>
+                <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-purple" data-category="image">
+                <div class="card-header">
+                    <span class="ai-name">Adobe Firefly</span>
+                    <span class="ai-badge">Дизайн / Комерція</span>
+                </div>
+                <p class="ai-desc">Генеративний ШІ від авторів Photoshop, інтегрований безпосередньо у професійні графічні редактори. Навчений виключно на ліцензійному контенті та стоках.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Дозволяє одним кліком дорисовувати, змінювати або видаляти об'єкти на фото на комерційно безпечному рівні.</div>
+                <a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+
+            <div class="ai-card card-purple" data-category="media">
+                <div class="card-header">
+                    <span class="ai-name">NotebookLM</span>
+                    <span class="ai-badge">Інтерактивний подкаст</span>
+                </div>
+                <p class="ai-desc">Продукт від Google, який змусить здивуватися будь-кого. Ви завантажуєте в нього будь-який нудний текст, книгу або документ, а ШІ за пару хвилин генерує живий, захопливий аудіо-подкаст із двома ведучими.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Ведучі жартують, перебивають одне одного та зітхають так природно, що їх неможливо відрізнити від реальних дикторів радіо.</div>
+                <a href="https://notebooklm.google/" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-blue" data-category="media">
+                <div class="card-header">
+                    <span class="ai-name">Runway & Google Veo</span>
+                    <span class="ai-badge">Генерація Кіно</span>
+                </div>
+                <p class="ai-desc">Інструменти, що стирають межу між ШІ та Голлівудом. Дозволяють створювати повноцінні відеокліпи високої роздільної здатності за текстовим описом із точним дотриманням законів фізики руху.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Керування камерою та деталізація облич вийшли на рівень професійного кіновиробництва.</div>
+                <a href="https://runwayml.com" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-green" data-category="media">
+                <div class="card-header">
+                    <span class="ai-name">GitHub Copilot</span>
+                    <span class="ai-badge">Програмування</span>
+                </div>
+                <p class="ai-desc">Найпопулярніший у світі інструмент автодоповнення та генерації коду для розробників. Працює як розумний асистент прямо у вашому середовищі розробки (IDE).</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Здатний писати цілі блоки робочого коду та знаходити критичні баги на основі простого коментаря людською мовою.</div>
+                <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+            <div class="ai-card card-orange" data-category="media">
+                <div class="card-header">
+                    <span class="ai-name">ElevenLabs</span>
+                    <span class="ai-badge">Генерація мовлення</span>
+                </div>
+                <p class="ai-desc">Абсолютний лідер у сфері синтезу мовлення, озвучування та клонування голосу. ШІ ідеально відтворює інтонації, емоції та акценти на десятках мов світу.</p>
+                <div class="ai-wow-factor"><strong>Вау-ефект:</strong> Може клонувати ваш голос за коротким аудіозаписом і змусити вас бездоганно розмовляти, наприклад, японською чи іспанською.</div>
+                <a href="https://elevenlabs.io" target="_blank" rel="noopener" class="ai-link">Дослідити ШІ</a>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script>
+    function filterCategory(category) {
+        // Оновлюємо активний клас у кнопках меню
+        const buttons = document.querySelectorAll('.menu-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Показуємо або ховаємо картки відповідно до категорії
+        const cards = document.querySelectorAll('.ai-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

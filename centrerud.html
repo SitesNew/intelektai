@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-Центр Эрудиции и Образования</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="centrerudstyle.css">
+</head>
+<body class="theme-white">
+                <!-- Текущая дата -->
+                <div align = right style="font-size:15px;  color:#000000;"> 
+                        <Script language="JavaScript">
+                                    var now = new Date();
+                                    var days = new Array(' Воскресенье ',' Понедельник ',' Вторник ',' Среда ',' Четверг ',' Пятница ',' Суббота ');
+                                    var months = new Array(' Января ',' Февраля ',' Марта ',' Апреля ',' Мая ',' Июня ',' Июля ',' Августа ',' Сентябрь',' Октября  ',' Ноября ',' Декабря ');
+                                    var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+                                    function fourdigits(number)	{ return (number < 1000) ? number + 1900 : number; }
+                                    today =  days[now.getDay()]+ " " +date + " " +months[now.getMonth()] + "  " +(fourdigits(now.getYear())) + " года     ";
+                                    document.write("<span class=\"style2\">"+"Сегодня "+today+ ".   "+"</span>");
+                        </Script>
+                </div> 
+
+    <!-- Панель нежных пастельных тем оформления -->
+    <div class="theme-switcher">
+        <span>Цвет страницы:</span>
+        <button class="theme-btn btn-white" onclick="setTheme('white')" title="Белая тема"></button>
+        <button class="theme-btn btn-gray" onclick="setTheme('gray')" title="Серая тема"></button>
+        <button class="theme-btn btn-green" onclick="setTheme('green')" title="Светло-зеленая тема"></button>
+        <button class="theme-btn btn-blue" onclick="setTheme('blue')" title="Светло-голубая тема"></button>
+    </div>
+
+    <!-- Шапка Портала -->
+    <header>
+        <h1>Интернет-Центр Эрудиции и Образования</h1>
+        <p>Универсальный цифровой портал фундаментальных знаний. Здесь аккумулирована часть учебно-образовательных материалов и инженерно-технических справочников, созданных для расширения кругозора, технической эрудиции  и удобного обучения.</p>
+    </header>
+
+    <!-- Основной Контент -->
+    <div class="container">
+        
+        <div class="grid-departments">
+
+            <!-- КАФЕДРА 1 -->
+            <div class="department-card">
+                <h2>🌐 Гуманитарные науки и культура</h2>
+                <ul class="links-list">
+                    <li><a href="https://sitesnew.github.io/obzorjazikov/" target="_blank">🗣️ Языки Планеты Земля : Врата в Миры</a></li>
+                    <li><a href="https://sitesnew.github.io/religiimira/" target="_blank">⛪ Обзор Религий Мира и их истории</a></li>
+                    <li><a href="https://sitesnew.github.io/nashaeda/" target="_blank">🍲 История еды, кулинария и биохимия</a></li>
+                </ul>
+            </div>
+
+            <!-- КАФЕДРА 2 -->
+            <div class="department-card">
+                <h2>💻 Информационные и высокие технологии</h2>
+                <ul class="links-list">
+                    <li><a href="https://sitesnew.github.io/intelektai/" target="_blank">🤖 Все об Искусственном Интеллекте</a></li>
+                    <li><a href="https://sitesnew.github.io/mobiltehno/" target="_blank">📡 Технологии мобильной Связи и радио</a></li>
+                    <li><a href="https://sitesnew.github.io/obzorigr/" target="_blank">🎮 Компьютерные Игры: обзор и технологии</a></li>
+                </ul>
+            </div>
+
+            <!-- КАФЕДРА 3 -->
+            <div class="department-card">
+                <h2>⚙️ Инженерия, быт и комфорт</h2>
+                <ul class="links-list">
+                    <li><a href="https://sitesnew.github.io/domstroim/" target="_blank">🏗️ Как Построить Дом: строительная академия</a></li>
+                    <li><a href="https://sitesnew.github.io/altenergo/" target="_blank">🔌 Альтернативная Энергетика и энергосбережение</a></li>
+                    <li><a href="https://sitesnew.github.io/avtouch/" target="_blank">🚗 Центр Автомобилиста и Электромобилиста</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- КАФЕДРА 4: ФИНАНСЫ И ТАЙНЫ (ГОРИЗОНТАЛЬНЫЙ И ОТЦЕНТРОВАННЫЙ БЛОК) -->
+        <div class="department-card financial-card">
+            <h2>💰 Финансы, экономика и тайны мира</h2>
+            <div class="links-horizontal">
+                <a href="https://sitesnew.github.io/dengi/" target="_blank">💵 История Денег и SWIFT</a>
+                <a href="https://sitesnew.github.io/krvaluta/" target="_blank">🪙 Криптовалюта и Майнинг</a>
+                <a href="https://sitesnew.github.io/zemlaufo/" target="_blank">🛸 Загадки Земли и UFO</a>
+            </div>
+        </div>
+<!-- НАЧАЛО БЛОКА: ФИЛОСОФИЯ ПРОЕКТА (МАНИФЕСТ) -->
+<div class="manifest-section" style="max-width: 800px; margin: 60px auto 40px auto; padding: 40px 20px; background-color: #ffffff; border-top: 3px solid #3182ce; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333;">
+
+        <h3 align = center style="color: #2c5282; font-size: 1.5em; margin-top: 30px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">🤖 Манифест от Искусственного Интеллекта ! </h3>
+    
+    <div style="font-style: italic; color: #4a5568; background-color: #ebf8ff; border-left: 4px solid #3182ce; padding: 15px 20px; margin: 25px 0; font-size: 1.1em; border-radius: 0 8px 8px 0;">
+        «Интернет-центр эрудиции и образования — это пространство, где технологии служат развитию человеческого разума, превращая терабайты данных в истинные знания».
+    </div>
+
+    <section style="margin-bottom: 35px;">
+        <h3 style="color: #2c5282; font-size: 1.5em; margin-top: 30px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">🧠 Наш вызов: Современный Интернет и человечество</h3>
+        <p style="font-size: 1.1em; margin-bottom: 15px;">Сегодня человечество обладает величайшей библиотекой в истории — Интернетом. Однако доступ ко всем знаниям мира не сделал нас автоматически мудрее.</p>
+        <ul style="margin-bottom: 20px; padding-left: 20px;">
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Парадокс изобилия:</strong> Мы тонем в информационном шуме, но голодаем по настоящему смыслу.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Клиповое мышление:</strong> Алгоритмы соцсетей приучают нас к быстрым, но поверхностным эмоциям.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Потеря фокуса:</strong> Глубокая эрудиция и системное образование заменяются минутой просмотра случайных фактов.</li>
+        </ul>
+        <p style="font-size: 1.1em; margin-bottom: 15px;">Интернет превратился в зеркало человечества: в нем есть все самое великое и все самое банальное. Наша задача сегодня — не просто потреблять контент, а научиться управлять этим океаном информации, сохраняя критическое мышление и жажду к настоящим знаниям.</p>
+    </section>
+
+    <section style="margin-bottom: 35px;">
+        <h3 style="color: #2c5282; font-size: 1.5em; margin-top: 30px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">🏛️ Наша миссия: Зачем создан Центр?</h3>
+        <p style="font-size: 1.1em; margin-bottom: 15px;">Этот проект — наш ответ на вызовы цифровой эпохи. Мы верим, что технологии должны возвышать человеческий разум, а не рассеивать его.</p>
+        <ul style="margin-bottom: 20px; padding-left: 20px;">
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Фильтр, а не просто поиск:</strong> Мы отсекаем информационный мусор, оставляя только проверенные, ценные и системные знания.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Возвращение к глубине:</strong> Мы возрождаем культуру классической эрудиции, где факты связаны в единую картину мира, а не существуют порознь.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Синергия человека и ИИ:</strong> Мы используем искусственный интеллект как умного ассистента, который помогает человеку учиться быстрее и глубже, но не думает вместо него.</li>
+        </ul>
+    </section>
+
+    <div style="text-align: center; font-size: 1.15em; font-weight: bold; color: #2c5282; margin: 35px 0; padding: 0 20px; font-style: italic;">
+        «Эрудиция — это не просто знание множества фактов. Это умение видеть связи между ними и понимать мир во всей его сложности».
+    </div>
+
+    <section style="margin-bottom: 20px;">
+        <h3 style="color: #2c5282; font-size: 1.5em; margin-top: 30px; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">🚀 Наши принципы в действии</h3>
+        <ol style="margin-bottom: 20px; padding-left: 20px;">
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Осмысленность выше скорости:</strong> Лучше понять одну сложную концепцию, чем прочитать десять кликбейтных заголовков.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Интерактивная интеллектуальность:</strong> Обучение через вызов — викторины, дебаты, интеллектуальные игры, тренирующие мозг.</li>
+            <li style="font-size: 1.1em; margin-bottom: 10px;"><strong style="color: #2b6cb0;">Доступность и универсальность:</strong> Сложные научные и гуманитарные знания, изложенные простым и живым языком для каждого.</li>
+        </ol>
+    </section>
+<hr>
+</div>
+<!-- КОНЕЦ БЛОКА: ФИЛОСОФИЯ ПРОЕКТА -->
+        <!-- РЕГИОНАЛЬНЫЙ БЛОК -->
+        <div class="local-block">
+            <h2>🏡 Региональный портал общины Катюжанки</h2>
+            <p>Информационный интернет-справочник, краєзнавчі матеріали, контакты экстренных служб, графики и площадка для живого интерактивного общения жителей села Катюжанка и Дымерской ОТГ.</p>
+            <div class="local-buttons">
+                <a href="https://sitesnew.github.io/katuganka/" target="_blank">📰 Информ-справочник Катюжанки</a>
+                <a href="https://katuganka.freeflarum.com/" target="_blank">💬 Живой Форум Катюжанки</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Фиксированная круглая кнопка НАВЕРХ -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" title="Начало страницы">&#9650;</button>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2010–2026 Интернет-Центр Эрудиции и Образования. Все права защищены.</p>
+        <p>Все материалы на данном информационном ресурсе предоставлены исключительно в ознакомительных, учебных и образовательных целях.</p>
+        <p>Для связи с администрацией портала: <a href="mailto:_pvi@ukr.net">_pvi@ukr.net</a></p>
+    </footer>
+
+    <!-- JavaScript для переключения тем и кнопки -->
+    <script>
+        function setTheme(themeName) {
+            document.body.className = '';
+            document.body.classList.add('theme-' + themeName);
+        }
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "flex";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
